@@ -113,4 +113,5 @@ fabric.properties
 !.vscode/extensions.json
 *.code-workspace
 
+venv/
 # End of https://www.toptal.com/developers/gitignore/api/pycharm,vscode
