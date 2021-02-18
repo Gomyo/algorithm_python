@@ -16,7 +16,7 @@ for i in range(1<<n): # 비트연산으로 부분집합의 개수 구하기
     for j in range(n): # 원소의 수만큼 비트 비교
         # A<<B : A를 B번 left shift 연산 하겠다
         if i&(1<<j): # i의 j번째 비트가 1이면 j번째 원소 출력
-            tmp_list.append(A[j])
+            tmp_list.append(j+1)
     subset_list.append(tmp_list)
 
 T = int(input())
