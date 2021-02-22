@@ -52,37 +52,58 @@
 
 # 교수님 코드
 
-arr = [[0] * 5 for _ in range(5)]
-N = 5
+# arr = [[0] * 5 for _ in range(5)]
+# N = 5
+# cnt = 1
+# # 특정조건일 때 계속 반복 : while
+# # 반복 횟수가 정해져 있으면  for : 배열의 길이만큼, 요소의 개수만큼
+# #모든 칸이 숫자로 채워질 때 까지 반복
+# total = N*N
+# #r,c는 숫자를 입력하려고 하는 좌표값
+# r = 0
+# c = 0
+# dr = [0,1,0,-1]
+# dc = [1,0,-1,0]
+# direction = 0 # 시작 방향이 오른쪽이니까 0부터 시작
+# #좌측 상단에서 시작, (0,0) 에서 시작
+# while cnt <= total:
+#     if 0 <= r < N and 0 <= c < N and not arr[r][c]:
+#         arr[r][c] = cnt
+#         cnt += 1
+#     else: #방향이동이 필요함
+#         r -= dr[direction]
+#         c -= dc[direction]
+#         direction = (direction + 1) % 4
+#     #숫자 넣었으니 이동, 현재 이동방향으로 변화량 더하기
+#     r += dr[direction]
+#     c += dc[direction]
+#     # print("!!!!!")
+
+# #출력 부분
+# for i in range(N):
+#     for j in range(N):
+#         # arr[i][j] = cnt
+#         # cnt += 1
+#         print(arr[i][j],end = " ")
+#     print()
+
+t = int(input())
+arr = [[0 for x in range(t)] for y in range(t)]
 cnt = 1
-# 특정조건일 때 계속 반복 : while
-# 반복 횟수가 정해져 있으면  for : 배열의 길이만큼, 요소의 개수만큼
-#모든 칸이 숫자로 채워질 때 까지 반복
-total = N*N
-#r,c는 숫자를 입력하려고 하는 좌표값
 r = 0
 c = 0
+total = t*t
 dr = [0,1,0,-1]
 dc = [1,0,-1,0]
-direction = 0 # 시작 방향이 오른쪽이니까 0부터 시작
-#좌측 상단에서 시작, (0,0) 에서 시작
+dd = 0
 while cnt <= total:
-    if 0 <= r < N and 0 <= c < N and not arr[r][c]:
+    if 0 <= r < t and 0<= c < t and not arr[r][c]:
         arr[r][c] = cnt
         cnt += 1
-    else: #방향이동이 필요함
-        r -= dr[direction]
-        c -= dc[direction]
-        direction = (direction + 1) % 4
-    #숫자 넣었으니 이동, 현재 이동방향으로 변화량 더하기
-    r += dr[direction]
-    c += dc[direction]
-    # print("!!!!!")
-
-#출력 부분
-for i in range(N):
-    for j in range(N):
-        # arr[i][j] = cnt
-        # cnt += 1
-        print(arr[i][j],end = " ")
-    print()
+    else:
+        r -= dr[dd]
+        c -= dc[dd]
+        dd = (dd + 1) % 4
+    r += dr[dd]
+    c += dc[dd]
+print(arr)
