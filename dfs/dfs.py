@@ -41,9 +41,31 @@ def dfs(v):
                 # 갈 수 있는 정점
                 stack.append(i)
                 visited[i] = True # i번 노드를 방문 했음
-                print(i)
+                print(i, end=" ")
                 break # 경로 찾았으면 즉시 해당 경로로 이동하기 위해서 break
         # 경로가 없으면 pop
         else: #for문 속 if에 걸리는 경우가 없을 경우 = 경로가 없음
             stack.pop()
-dfs(3)
+
+def dfs3(v):
+    stack = list()
+    visited = [False] * (V+1)
+    stack.append(v)
+    visited[v] = True
+
+    # 위 방법이랑 다른 점은, 한 정점에 방문하면 해당 정점에서 방문할 수 있는 모든 정점을 스택에 넣어준다는 것.
+    # 해당 정점은 재방문할 필요가 없음
+    # 숫자가 큰 노드부터 방문하게 된다.
+    while stack:
+        # 그때그때 빼버림
+        top = stack.pop()
+        print(top, end=" ")
+        # top에서 갈 수 있는 모든 정점을 스택에 넣는다
+        for i in range(1, V+1):
+            if adj[top][i] and not visited[i]:
+                stack.append(i)
+                visited[i] = True
+
+dfs(1)
+print()
+dfs3(1)
