@@ -24,3 +24,5 @@ def dfs(v):
         if adj[v][i] == 1 and not visited[i]:
             dfs(i)
 dfs(1)
+
+visited.append()
