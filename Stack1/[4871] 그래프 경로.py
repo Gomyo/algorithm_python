@@ -7,6 +7,17 @@ def dfs(node):
             return
         dfs(i) # 이어져 있지 않다면 i에 대해 재귀적으로 DFS 실행. for문으로 실행되므로 가지치듯이 주루룩 내려간다.
 
+def dfs2(node):
+    visited[node] = 1
+    if node == G:
+        return 1
+
+    for i in graph[node]:
+        if not visited[i]:
+            dfs2(i)
+
+    return 0
+
 T = int(input())
 
 for tc in range(1, T+1):
@@ -25,5 +36,5 @@ for tc in range(1, T+1):
     S, G = map(int, input().split())
 
     # DFS
-    dfs(S)
+    res = dfs2(S)
     print('#{} {}'.format(tc, res))

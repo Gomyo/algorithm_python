@@ -20,13 +20,14 @@ def dfs(v):
     return 0
 
 def dfs2(v):
-    pass
+    for i in range(2):
+        pass
 
 for _ in range(1, T+1):
     V = 100
     tc, E = map(int, input().split())
     edges = list(map(int, input().split()))
-    adj = [[0] * V for x in range(V)]
+    adj = [[-1] * V for x in range(V)]
 
     for i in range(0, E*2, 2):
         s = edges[i]
