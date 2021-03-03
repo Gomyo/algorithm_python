@@ -13,7 +13,6 @@ def dfs(r,c):
         ny = c + i[1]
         if 0 <= nx < N and 0 <= ny < N and (maze[nx][ny] == 0 or maze[nx][ny] == 3) and (nx, ny) not in visited:
             dfs(nx, ny)
-    return e
 
 T = int(input())
 
