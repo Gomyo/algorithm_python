@@ -13,7 +13,7 @@ def bfs(r,c):
     queue = []
     visited = [[0] * N for x in range(N)]
     # (r,c,d) d : 시작지점으로부터의 거리
-    queue.append(r,c,0,'')
+    queue.append((r,c,0,[]))
     delta = [(0,1),(1,0),(-1,0),(0,-1)]
     # 방문하는 정점을 dequeue -> front로
     # 갈 수 있는 경로가 있으면 enqueue
@@ -24,8 +24,7 @@ def bfs(r,c):
     while queue:
         # 현재까지의 거리 받아옴
         cr,cc,cd,path = queue.pop(0)
-        path += str(r) + str(c)
-        print((cr,cc,cd,path))
+        print(path)
 
         if arr[cr][cc] == 2:
             return '도착'
@@ -38,7 +37,8 @@ def bfs(r,c):
                 # queue에 추가
                 # 방문했음을 표시
                 # 다음 위치까지의 거리는 cd + 1
-                queue.append((nr, nc, cd+1, path + str(nr) + str(nc)))
+                path.append((nr, nc))
+                queue.append((nr, nc, cd+1, path))
                 path.append((nr,nc))
                 visited[nr][nc] = 1
 
