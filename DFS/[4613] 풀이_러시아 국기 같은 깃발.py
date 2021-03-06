@@ -116,7 +116,6 @@ def comb(selected, idx, cnt):
             for j in range(M):
                 if flag[i][j] != 'W':
                     w_cnt += 1
-            pass
         b_cnt = 0
         # 파란색 영역
         for i in range(a,b):
@@ -133,6 +132,7 @@ def comb(selected, idx, cnt):
         if res > tmp:
             res = tmp
         return
+
     if idx == N-1: # 마지막 줄은 구분선이 될 수 없으므로
         return
     # 각 행을 자를지 말지 결정
