@@ -13,4 +13,4 @@ def permutation(idx):
                 check[i] = 1 # i번째 자리는 사용했음
                 permutation(idx+1)
                 check[i] = 0 # 다음 반복문을 위해 원상복귀 시켜주기
-permutation(0)
+permutation(1)
