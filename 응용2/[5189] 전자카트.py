@@ -6,20 +6,23 @@ T = int(input())
 def backtrack(idx, val):
     global result
 
-    if val >= result:
+    if val < result:
         return
 
-    if idx == N and :
-        if val < result:
-            result = val
-        return
+        checked[idx] = 1
 
-    for i in range(N):
-        if idx != i and not checked[i]:
-            selected[idx] = i
-            checked[i] = 1
-            backtrack(idx+1, val+data[idx][i])
-            checked[i] = 0
+        if None not in selected:
+            if val < result:
+                result = val
+            return
+
+        for i in range(N):
+            if idx != i and not checked[i]:
+                selected[idx] = i
+                backtrack(idx+1, val+data[idx][i])
+                selected[idx] = None
+
+        checked[idx] = 0
 
 for tc in range(1, T+1):
     N = int(input())
@@ -28,4 +31,4 @@ for tc in range(1, T+1):
     checked = [0] * N
     result = 2147483647
     backtrack(0, 0)
-    print(result)
+    print('#{} {}'.format(tc, result))
