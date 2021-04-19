@@ -20,13 +20,12 @@ def partition(arr,left,right):
     j = right
     #pivot의 위치를 가장 왼쪽 요소로 선정
     pivot = arr[left]
-
     while i < j:
         # i를 증가 시키면서 pivot보다 큰값을 찾음
         while i <= j and arr[i] <= pivot:
             i += 1
         #j 는 감소하면서 pivot보다 작은값을 찾음
-        while i <=j and arr[j] > pivot:
+        while i <= j and arr[j] > pivot:
             j -= 1
         #위치를 교환해주면 되는데....
         if i < j:   # 위치가 역전되어 있으면, 제대로 된 교환이 아님
@@ -36,8 +35,9 @@ def partition(arr,left,right):
     arr[j], arr[left] = arr[left],arr[j]
     return j
 
-arr = [8,7,6,5,4,3,2]
-N = 7
+# arr = [8,7,6,5,4,3,2]
+arr = [5,4,3,2,1]
+N = len(arr)
 quick_sort(arr,0,N-1)
 print(arr)
 
