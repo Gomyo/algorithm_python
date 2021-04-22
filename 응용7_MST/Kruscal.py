@@ -59,7 +59,6 @@ def kruskal(data):
 V, E = map(int,input().split())
 data = list()
 p = list(range(V))
-#data를 heap 형태로 저장하고 사용해보기
 
 for e in range(E):
     a,b,w = map(int,input().split())
