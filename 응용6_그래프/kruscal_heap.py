@@ -34,20 +34,19 @@ def union(x,y):
     else:
         p[b] = a
 
+
+import heapq
+
 def kruskal(data):
     # 최소 가중치 비용을 저장할 변수
     result = 0
-    #1. 정렬
-    sort(data, E)
-    #2. 선택,만약에 사이클이 생기면 선택안함
-    #2-1. 사이클이 생기는지 판단하기 : 서로소집합 이용하기
     mst = []
-    #data를 하나씩 읽으면서 사이클이 생기는지 확인
-    for i in range(E):
-        if find_set(data[i][0]) == find_set(data[i][1]): continue
-        union(data[i][0], data[i][1])
-        mst.append((data[i][0], data[i][1]))
-        result += data[i][2]
+    while data:
+        w,e = heapq.heappop(data)
+        if find_set(e[0]) == find_set(e[1]): continue
+        mst.append((w,e))
+        union(e[0],e[1])
+        result += w
 
     return result
 
@@ -63,7 +62,9 @@ p = list(range(V))
 
 for e in range(E):
     a,b,w = map(int,input().split())
-    data.append((a,b,w))
+    # data.append((a,b,w))
+    #heappush(대상리스트, 요소) : 요소의 첫번째 값이 정렬 기준
+    heapq.heappush(data, (w, (a,b))) # w를 기준으로 heap에 푸시
 
 res = kruskal(data)
 print(res)
