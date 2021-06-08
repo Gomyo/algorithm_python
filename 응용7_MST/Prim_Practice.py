@@ -41,7 +41,8 @@ def prim(start_vertex):
 
         #5-3. 선택한 정점의 인접 정점의 가중치를 최단 가중치로 업데이트
         for i in range(V):
-            #7-1. 현재의 정점과 연결되어 있고, 아직 방문하지 않았을 경우,
+            #7-1. 현재의 정점과 연결되어 있고, 정점의 key값보다 가중치(간선)의 값이 작으며,
+            # 아직 방문하지 않았을 경우,
             if adj[min_v][i] < weight[i] and not visited[i]:
                 # 현재 vertex와 이어진 간선 값이 최단이므로 업데이트
                 weight[i] = adj[min_v][i]
