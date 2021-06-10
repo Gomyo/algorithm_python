@@ -1,6 +1,10 @@
 def hunt(turn, monster, monster_cnt, attack, skill, skill_number):
     global min_turn
 
+    # 최단 공격 횟수를 넘었다면 탐색 중지
+    if turn >= min_turn:
+        return
+
     # 현재 몬스터 구분
     if monster[monster_cnt] <= 0:
         monster_cnt += 1
