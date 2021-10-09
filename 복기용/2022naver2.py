@@ -6,9 +6,10 @@ def solution(n, queries):
     count = 0
     front = 0
     qq = deque([])
-    Q = []
-    for i in range(n):
-        Q.append(deepcopy(qq))
+    # Q = []
+    # for i in range(n):
+    #     Q.append(deepcopy(qq))
+    Q = [deque([]) for x in range(n)]
 
     for command, number in queries:
         if command == -1:
